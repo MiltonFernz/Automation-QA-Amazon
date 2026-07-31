@@ -38,6 +38,7 @@ test.beforeEach(async ({ page }) => {
 		await amazonHomePage.addFirstProductToCart();
 		
 		await amazonHomePage.navigateToCart();
-		
+		await amazonHomePage.cartProductTitle.waitFor({ state: 'visible' });
+		await expect(amazonHomePage.cartProductTitle).toHaveText(amazonHomePage.selectedProductTitle);
 	});
 });
